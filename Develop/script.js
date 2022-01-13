@@ -1,25 +1,53 @@
 // Assignment code here
+var letters = "abcdefghijklmnopqrstuvwxyz"
+var lettersUp = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
+var numbers = "0123456789"
+var specialChar = "#$%&'()*+,-./:;<=>?@[\]^_`{|}~"
+var charset = ""
+var passwordValue = ""
 
 // when generate button is clicked, window prompts appear to determine password criteria 
-function generatePassword() {
-  window.alert("Please choose password criteria.");
+
+var generatePassword = function() {
+
+  var chooseLength = prompt("Please input password length. (Min. 8 characters, Max. 128 characters)")
+  
+  if (chooseLength < 8 || chooseLength > 128) {
+    alert("Length must be a minimum of 8 characters and maximum of 128 characters.");
+    return generatePassword();
+  }
+  var upperC = confirm("Would you like to use UPPERCASE letters?")
+  if (upperC == true) {
+    charset = charset + lettersUp
+  }
+  var lowerC = confirm("Would you like to use LOWERCASE letters?")
+  if (lowerC == true) {
+    charset = charset + letters
+  }
+  var numeric = confirm("Would you like to use NUMBERS?")
+  if (numeric == true) {
+    charset = charset + numbers
+  }
+  var special = confirm("Would you like to use SPECIAL CHARACTERS?")
+  if (special == true) {
+    charset = charset + specialChar
+  }
+  console.log(charset.length);
+
+  for (var i = 0, a = charset.length; i < length; ++i) {
+    passwordValue += charset.charAt(Math.floor(Math.random() * a));
+
+  }
+ 
+  console.log(charset)
+  console.log(passwordValue)
+  return passwordValue;
+  
+  
 
 };
 
 
-// window prompt for length of pass (8 min, 128 max)
-    
-// window prompt to use lowercase characters
-  //if TRUE - use lowercase
-
-// window prompt to use uppercase characters
-  // else use uppercase
-// window prompt to use numeric chars
-  // if TRUE - use numeric
-  // else, dont use numeric
-// window prompt to use special chars
-  // if TRUE - use special chars
-  //  else, dont use special chars
 
 
 // Get references to the #generate element

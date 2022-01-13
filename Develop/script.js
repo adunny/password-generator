@@ -4,7 +4,7 @@ var lettersUp = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
 var numbers = "0123456789"
 var specialChar = "#$%&'()*+,-./:;<=>?@[\]^_`{|}~"
 var charset = ""
-var passwordValue = ""
+var passwordValue = []
 
 // when generate button is clicked, window prompts appear to determine password criteria 
 
@@ -34,8 +34,10 @@ var generatePassword = function() {
   }
   console.log(charset.length);
 
-  for (var i = 0, a = charset.length; i < length; ++i) {
-    passwordValue += charset.charAt(Math.floor(Math.random() * a));
+  for (var i = 0; i < charset.length; ++i) {
+    a = charset.length;
+    var passwordA = charset.charAt(Math.floor(Math.random() * a));
+    passwordValue.push(passwordA);
 
   }
  

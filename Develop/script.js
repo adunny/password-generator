@@ -16,6 +16,10 @@ var generatePassword = function() {
     alert("Length must be a minimum of 8 characters and maximum of 128 characters.");
     return generatePassword();
   }
+  if (isNaN(chooseLength)) {
+    alert("Please enter a valid character length.")
+    return generatePassword();
+  }
   //check input
   else {
     var upperC = confirm("Would you like to use UPPERCASE letters?")
@@ -34,7 +38,12 @@ var generatePassword = function() {
   if (special == true) {
     charset = charset + specialChar
   }
-  console.log(charset.length);
+  if (!upperC && !lowerC && !numeric && !special) {
+    alert("You must select at least ONE option!");
+    return generatePassword();
+    
+  }
+
   }
 
   passwordValue = []

@@ -4,7 +4,7 @@ var lettersUp = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
 var numbers = "0123456789"
 var specialChar = "#$%&'()*+,-./:;<=>?@[\]^_`{|}~"
 var charset = ""
-var passwordValue = []
+
 
 // when generate button is clicked, window prompts appear to determine password criteria 
 
@@ -16,7 +16,9 @@ var generatePassword = function() {
     alert("Length must be a minimum of 8 characters and maximum of 128 characters.");
     return generatePassword();
   }
-  var upperC = confirm("Would you like to use UPPERCASE letters?")
+  //check input
+  else {
+    var upperC = confirm("Would you like to use UPPERCASE letters?")
   if (upperC == true) {
     charset = charset + lettersUp
   }
@@ -33,8 +35,10 @@ var generatePassword = function() {
     charset = charset + specialChar
   }
   console.log(charset.length);
+  }
 
-  for (var i = 0; i < charset.length; ++i) {
+  passwordValue = []
+  for (var i = 0; i < chooseLength; ++i) {
     a = charset.length;
     var passwordA = charset.charAt(Math.floor(Math.random() * a));
     passwordValue.push(passwordA);
@@ -43,11 +47,12 @@ var generatePassword = function() {
  
   console.log(charset)
   console.log(passwordValue)
-  return passwordValue;
+  return passwordValue.join('');
   
   
 
 };
+
 
 
 
